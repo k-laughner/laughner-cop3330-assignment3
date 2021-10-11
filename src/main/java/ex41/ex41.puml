@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class alphabetize {
++alphabetizeArrayList( ArrayList ) : ArrayList
+}
+class App {
++main( String[] args ) : void
++listToFile( ArrayList <String> ) : FileWriter
+}
+
+@enduml

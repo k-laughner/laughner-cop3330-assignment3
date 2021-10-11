@@ -1,0 +1,21 @@
+CREATE CLASS alphabetize
+    CREATE METHOD alphabetizeArrayList( ArrayList list)
+        SORT ArrayList alphabetically using Collections.sort
+        RETURN list
+CREATE CLASS APP
+    CREATE METHOD main( String[] args )
+        READ File exercise41_input.txt
+        INITIALIZE ArrayList <String> list
+        WHILE there is another line of text
+            Add it to list
+        CALL class alphabetize
+        USE alphabetizeArrayList method from Class alphabetize on list
+        USE listToFile method to create an output file
+    CREATE METHOD listToFile( ArrayList <String> list )
+        NEW FileWriter to exercise41_output.txt file
+        WRITE "Total of 7 names"
+        WRITE "----------------"
+        FOR each string in the list
+            Write the line to the output file
+        CLOSE the writer
+        RETURN writer

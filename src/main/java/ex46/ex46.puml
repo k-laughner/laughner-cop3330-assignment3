@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class wordFrequency{
++countFrequencies( String ) : Map
+}
+class App {
++main( String[] args) : void
++printGraphic( Map <String, Integer> ) : void
+}
+@enduml

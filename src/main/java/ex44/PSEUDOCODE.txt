@@ -1,0 +1,31 @@
+CREATE CLASS match
+    CREATE METHOD matcher(JSONArray products, String input) that returns int
+        SET int match = 0
+        CREATE Iterator it
+        WHILE it has line of data
+            SET JSONObject result to typecasted line of iterator
+            SET String name = name of result
+            IF user input equals name
+                PRINT "Name:" + name variable
+                PRINT "Price:" + price of result
+                PRINT "Quantity" + quantity of result
+                SET match = 1
+        return match
+CREATE CLASS APP
+    CREATE METHOD main
+        INITIALIZE int matcher = 0
+        DO
+            READ JSON FILE USING JSONParser as Object json
+            INITIALIZE JSONObject j to typecasted json
+            GET VALUES of products in JSONObject j
+            SET String name = return value of getInput()
+            CALL Class match
+            USER matcher method from class match to loop through products to find any match
+            IF matcher = 0
+                THEN PRINT "Sorry, that product was not found."
+        WHILE matcher = 0
+    CREATE METHOD getInput that returns String
+        PRINT "What is the product name?"
+        USE Scanner to get input
+        SET String name = input
+        RETURN name

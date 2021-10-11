@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class csvToStringArr {
++toArr( Scanner ) : String[][]
+}
+class App {
++main (String[] args ) : void
++print ( String[][] ) : void
+}
+@enduml

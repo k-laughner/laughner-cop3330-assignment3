@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class match {
++matcher( JSONArray, String ) : int
+}
+class App {
++main() : void
++getInput() : String
+}
+
+@enduml

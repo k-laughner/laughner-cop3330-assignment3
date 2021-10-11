@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class generateFiles {
++websiteFolder() : void
++ webNameFolder( String ) : String
++ indexCreator( String, String ) : void
++ cssFolder( String ) : void
++ javaScriptFolder ( String  ) : void
+}
+class App {
++ main ( String[] args ) : void
++ getInput() : String
+}
+@enduml

@@ -1,0 +1,23 @@
+CREATE CLASS searchReplace
+    CREATE METHOD searchAndReplace ( String content, String newWord, String oldWord ) that returns String
+        INITIALIZE String newContent to content with replaced words using replaceAll( oldWord, newWord)
+        return newContent
+CREATE CLASS APP
+    CREATE METHOD main with String[] args
+        INITIALIZE String oldContent = content of exercise45_input.txt
+        INITIALIZE String oldTerm to 'utilize'
+        INITIALIZE String newTerm to 'use'
+        CALL searchReplace class
+        INITIALIZE String newContent to return of searchAndReplace() method in class searchReplace
+        INITIALIZE String outputName to return of outputFile() method
+        Call createFile(outputName, newContent) method
+    CREATE METHOD outputFile() that returns String
+        PRINT "What is the name of the output file?"
+        USE Scanner to get input from user
+        INITIALIZE String outputFileName to be user input
+        RETURN outputFileName
+    CREATE METHOD createFile( String name, String content ) that returns a file
+        Create writer of type FileWrite to user specified file name
+        WRITER content to file
+        CLOSE writer
+        RETURN writer

@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class searchReplace {
++searchAndReplace( String, String, String) : String
+}
+class App {
++main() : void
++outputFile() : String
++createFile( String, String ) : FileWriter
+}
+@enduml

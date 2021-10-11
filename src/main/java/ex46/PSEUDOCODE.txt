@@ -1,0 +1,23 @@
+CREATE CLASS wordCounter
+    CREATE METHOD countFrequencies( String filecontent) that returns Map
+        INITIALIZE String tempContent = fileContent with line breaks removed and replaced with " "
+        INITIALIZE String content = tempContent with double spaces between words changed to single space " "
+        INITIALIZE String[] words = content split by spaces
+        CREATE TreeMap map
+        FOR int i=0; i<words.length; i++
+            IF map already has word in it, then add 1 to its int count
+            IF map does not already have word in it, then add it to map with int count of 1
+        RETURN map
+CREATE CLASS App
+    CREATE METHOD main ( String[] args )
+        INITIALIZE String content = exercise46_input.txt content read in as string
+        CALL wordFrequency class
+        INITIALIZE map = return of countFrequencies(content) of wordFrequency class
+        CALL printGraphic method
+    CREATE METHOD printGraphic (Map<String, Integer> map)
+        FOR each map entry
+            INITIALIZE String starGraphic to empty String " "
+            INITIALIZE int count to value of key word
+            FOR int i=0; i<count; i++
+                ADD a * to starGraphic String
+            PRINT the word and starGraphic

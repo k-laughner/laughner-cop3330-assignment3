@@ -1,0 +1,38 @@
+CREATE CLASS generateFiles
+    CREATE METHOD websiteFolder()
+        INITIALIZE FILE to path "src/main/java/ex43/website"
+        CREATE PATH FOLDER using mkdir()
+    CREATE METHOD webNameFolder( String Name )
+        INITIALIZE STRING directory to be user specified name
+        INITIALIZE FILE to path directory initialized in previous step
+        CREATE PATH FOLDER using mkdir()
+        RETURN directory
+    CREATE METHOD indexCreator( String name, String author)
+        INITIALIZE FILE WRITER to path "src/main/java/ex43/website/folderName/index.html" where folderName is user's input
+        INITIALIZE STRING content to be containing content that will be on index.html page
+        WRITE string content to html file
+        CLOSE WRITER
+    CREATE METHOD cssFolder()
+        INITIALIZE FILE to path "src/main/java/ex43/website/folderName/css" where folderName is user's input
+        CREATE PATH FOLDER using mkdir()
+    CREATE METHOD javaScriptFolder()
+        INITIALIZE FILE to path "src/main/java/ex43/website/folderName/js" where folderName is user's input
+        CREATE PATH FOLDER using mkdir()
+CREATE CLASS APP
+    CREATE METHOD MAIN
+        INPUT siteName
+        INPUT author
+        INPUT javaScript
+        INPUT css
+        CALL generateFiles class
+        CALL websiteFolder() method
+        CALL webNameFolder(siteName) method
+        CALL indexCreator(siteName, author) method
+        IF javaScript is 'y' or 'Y'
+            THEN CALL javaScriptFolder() method
+        IF css is 'y' or 'Y'
+            THEN CALL cssFolder() method
+    CREATE METHOD getInput
+        SET 'input' of data type SCANNER to new input from user
+        SET String 'str' to input
+        RETURN str

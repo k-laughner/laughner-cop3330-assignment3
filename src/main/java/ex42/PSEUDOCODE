@@ -1,0 +1,26 @@
+CREATE NEW CLASS App
+    CREATE METHOD Main
+        INITIALIZE file variable of data type file to exercise42_input.txt
+        INITIALIZE input Scanner data type to equal file
+        CALL CLASS csvToStringArr
+        USE METHOD toArr from class csvToStringArr to parse csv data
+        CALL print method
+    CREATE METHOD Print
+        PRINT heading for "Last   First   Salary"
+        PRINT lines to divide header from data
+        FOR EACH ROW i OF 2-D ARRAY
+            PRINT value in columns 0,1, and 2 for each i
+
+CREATE NEW CLASS csvToStringArr
+    CREATE NEW METHOD toArr that will return a 2-D string array
+        INITIALIZE 3 ArrayLists of type string, each called 'first', 'last', and, 'num'
+        WHILE file has text
+            Initialize String s to equal each line
+            Initialize String Array arr to equal String s split by comma
+            ADD input to last, first, and num lists respectively
+        INITIALIZE a 2-D Array named 'data' of row size equal to the size of the last name array list and column size of 3
+        FOR every name in each list
+            ASSIGN the first column the last names for each row
+            ASSIGN the second column the first names for each row
+            ASSIGN the third column the salary for each row
+        RETURN 2-D array 'Data'
